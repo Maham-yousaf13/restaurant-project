@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ item.name }} - AMECO Restaurant{% endblock %}
+
+{% block content %}
+<div class="pt-20 pb-16 bg-gray-50 min-h-screen">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                
+                <!-- Product Image -->
+                <div class="h-96 md:h-full overflow-hidden">
+                    {% if item.image %}
+                        <img src="{{ item.image.url }}" alt="{{ item.name }}" class="w-full h-full object-cover">
+                    {% else %}
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600" alt="{{ item.name }}" class="w-full h-full object-cover">
+                    {% endif %}
+                </div>
+                
+                <!-- Product Details -->
+                <div class="p-8">
+                    <!-- Category & Rating -->
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+                            {{ item.category.name }}
+                        </span>
+                        <span class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-600">{{ item.rating }}</span>
+                        </span>
+                        {% if item.is_featured %}
+                            <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm">
+                                <i class="fas fa-crown mr-1"></i> Featured
+                            </span>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Product Name -->
+                    <h1 class="text-3xl font-playfair font-bold text-gray-900 mb-4">{{ item.name }}</h1>
+                    
+                    <!-- Price -->
+                    <div class="mb-4">
+                        {% if item.discount_price %}
+                            <span class="text-gray-400 line-through text-lg">${{ item.price|floatformat:2 }}</span>
+                            <span class="text-3xl font-bold text-red-600">${{ item.discount_price|floatformat:2 }}</span>
+                            <span class="bg-green-100 text-green-700 ml-2 px-2 py-1 rounded-full text-xs font-semibold">
+                                Save ${{ item.price|floatformat:2 }}
+                            </span>
+                        {% else %}
+                            <span class="text-3xl font-bold text-red-600">${{ item.price|floatformat:2 }}</span>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-gray-600 leading-relaxed mb-6">{{ item.description }}</p>
+                    
+                    <!-- Ingredients -->
+                    <div class="mb-6">
+                        <h3 class="font-semibold text-gray-900 mb-2">
+                            <i class="fas fa-utensils mr-2 text-red-600"></i> Ingredients:
+                        </h3>
+                        {% if item.ingredients %}
+                            <p class="text-gray-600">{{ item.ingredients }}</p>
+                        {% else %}
+                            <p class="text-gray-400 text-sm">No ingredients listed</p>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Calories -->
+                    <div class="mb-6">
+                        <h3 class="font-semibold text-gray-900 mb-2">
+                            <i class="fas fa-fire mr-2 text-red-600"></i> Calories:
+                        </h3>
+                        {% if item.calories %}
+                            <p class="text-gray-600">{{ item.calories }} kcal</p>
+                        {% else %}
+                            <p class="text-gray-400 text-sm">No calorie information available</p>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Additional Info -->
+                    <div class="flex flex-wrap gap-6 mb-6 p-4 bg-gray-50 rounded-lg">
+                        {% if item.preparation_time %}
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-blue-500 text-xl mr-2"></i>
+                            <div>
+                                <p class="text-xs text-gray-500">Prep Time</p>
+                                <p class="font-semibold text-gray-900">{{ item.preparation_time }} min</p>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        <div class="flex items-center">
+                            <i class="fas fa-tag text-green-500 text-xl mr-2"></i>
+                            <div>
+                                <p class="text-xs text-gray-500">Category</p>
+                                <p class="font-semibold text-gray-900">{{ item.category.name }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Add to Cart Form -->
+                    <div class="flex flex-col sm:flex-row gap-4 mt-6">
+                        <form method="POST" action="{% url 'add_to_cart' item.id %}" class="flex-1">
+                            {% csrf_token %}
+                            <div class="flex items-center gap-3 mb-3">
+                                <label for="quantity" class="text-sm font-medium text-gray-700">Quantity:</label>
+                                <input type="number" name="quantity" id="quantity" value="1" min="1" max="10" 
+                                       class="w-20 px-3 py-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-red-500">
+                            </div>
+                            <button type="submit" class="w-full bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition duration-300 font-semibold">
+                                <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                            </button>
+                        </form>
+                        <a href="{% url 'menu_list' %}" class="px-6 py-3 border-2 border-gray-300 rounded-lg hover:bg-gray-50 transition duration-300 text-center">
+                            <i class="fas fa-arrow-left mr-2"></i> Back to Menu
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Similar Items Section -->
+        <div class="mt-12">
+            <h2 class="text-2xl font-playfair font-bold text-gray-900 mb-6">You Might Also Like</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {% for similar in item.category.items.all %}
+                    {% if similar.id != item.id and similar.is_available %}
+                    <a href="{% url 'menu_detail' similar.slug %}" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition group">
+                        <div class="h-48 overflow-hidden">
+                            {% if similar.image %}
+                                <img src="{{ similar.image.url }}" alt="{{ similar.name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            {% else %}
+                                <img src="https://via.placeholder.com/400x300?text={{ similar.name }}" alt="{{ similar.name }}" class="w-full h-full object-cover">
+                            {% endif %}
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-bold text-gray-900">{{ similar.name }}</h4>
+                            <p class="text-red-600 font-semibold">${{ similar.price|floatformat:2 }}</p>
+                        </div>
+                    </a>
+                    {% endif %}
+                {% empty %}
+                    <p class="text-gray-500 col-span-3 text-center py-4">No similar items available</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

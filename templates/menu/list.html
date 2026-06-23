@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Menu - AMECO Restaurant{% endblock %}
+
+{% block content %}
+<div class="pt-20 pb-16 bg-gray-50 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-playfair font-bold text-gray-900">Our Menu</h1>
+            <p class="text-gray-600 mt-2">Discover our delicious selection of dishes</p>
+        </div>
+        
+        <!-- Category Filter -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <a href="{% url 'menu_list' %}" 
+               class="px-6 py-2 rounded-full {% if not active_category %}bg-red-600 text-white{% else %}bg-gray-200 text-gray-700 hover:bg-red-600 hover:text-white{% endif %} transition duration-300">
+                All
+            </a>
+            {% for category in categories %}
+                <a href="?category={{ category.slug }}" 
+                   class="px-6 py-2 rounded-full {% if active_category == category.slug %}bg-red-600 text-white{% else %}bg-gray-200 text-gray-700 hover:bg-red-600 hover:text-white{% endif %} transition duration-300">
+                    {{ category.name }}
+                </a>
+            {% endfor %}
+        </div>
+        
+        <!-- Menu Items Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for item in menu_items %}
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 group">
+                <div class="relative h-56 overflow-hidden">
+                    {% if item.image %}
+                        <img src="{{ item.image.url }}" alt="{{ item.name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    {% else %}
+                        <img src="https://via.placeholder.com/400x300?text={{ item.name }}" alt="{{ item.name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    {% endif %}
+                    {% if item.is_featured %}
+                        <span class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Featured
+                        </span>
+                    {% endif %}
+                    {% if item.discount_price %}
+                        <span class="absolute bottom-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            {{ item.discount_price|floatformat:0 }}% OFF
+                        </span>
+                    {% endif %}
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">{{ item.name }}</h3>
+                        <span class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-600">{{ item.rating }}</span>
+                        </span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3 line-clamp-2">{{ item.description|truncatechars:100 }}</p>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            {% if item.discount_price %}
+                                <span class="text-gray-400 line-through text-sm">${{ item.price|floatformat:2 }}</span>
+                                <span class="text-2xl font-bold text-red-600">${{ item.discount_price|floatformat:2 }}</span>
+                            {% else %}
+                                <span class="text-2xl font-bold text-red-600">${{ item.price|floatformat:2 }}</span>
+                            {% endif %}
+                        </div>
+                        <a href="{% url 'menu_detail' item.slug %}" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-span-full text-center py-12">
+                <p class="text-gray-500 text-lg">No menu items available</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

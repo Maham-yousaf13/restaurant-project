@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - AMECO Restaurant{% endblock %}
+
+{% block content %}
+
+<!-- ==================== HERO SECTION ==================== -->
+<!-- This is the main banner section with background image -->
+<section class="relative h-screen flex items-center justify-center bg-cover bg-center" 
+         style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920');">
+    
+    <!-- Dark overlay for better text readability -->
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    
+    <!-- Hero content - centered on screen -->
+    <div class="relative z-10 text-center text-white px-4">
+        <h1 class="text-5xl md:text-7xl font-playfair font-bold mb-6">
+            Welcome to AMECO
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+            Experience the finest dining with our exquisite menu crafted by world-class chefs.
+        </p>
+        
+        <!-- Call to Action Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <!-- View Menu Button - redirects to menu page -->
+            <a href="{% url 'menu_list' %}" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition duration-300">
+                View Menu
+            </a>
+            <!-- Book a Table Button - redirects to booking page -->
+            <a href="{% url 'book_table' %}" class="bg-white hover:bg-gray-100 text-gray-900 px-8 py-3 rounded-lg text-lg font-semibold transition duration-300">
+                Book a Table
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== STATS SECTION ==================== -->
+<!-- Displays restaurant statistics -->
+<section class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            
+            <!-- Stat 1: Menu Items -->
+            <div class="text-center">
+                <div class="text-4xl font-bold text-red-600">120+</div>
+                <div class="text-gray-600">Menu Items</div>
+            </div>
+            
+            <!-- Stat 2: Years Experience -->
+            <div class="text-center">
+                <div class="text-4xl font-bold text-red-600">15+</div>
+                <div class="text-gray-600">Years Experience</div>
+            </div>
+            
+            <!-- Stat 3: Average Rating -->
+            <div class="text-center">
+                <div class="text-4xl font-bold text-red-600">4.0★</div>
+                <div class="text-gray-600">Average Rating</div>
+            </div>
+            
+            <!-- Stat 4: Happy Customers -->
+            <div class="text-center">
+                <div class="text-4xl font-bold text-red-600">500+</div>
+                <div class="text-gray-600">Happy Customers</div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FEATURED DISHES SECTION ==================== -->
+<!-- Shows top 3 featured dishes with clickable cards -->
+<section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+        
+        <!-- Section Title -->
+        <h2 class="text-3xl font-playfair font-bold text-center mb-12">Featured Dishes</h2>
+        
+        <!-- Dishes Grid - 3 columns on desktop -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- ===== Dish 1: Truffle Risotto ===== -->
+            <!-- Entire card is clickable and redirects to dish detail page -->
+            <a href="{% url 'menu_detail' 'truffle-risotto' %}" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 group cursor-pointer">
+                
+                <!-- Dish Image -->
+                <div class="h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500" 
+                         alt="Truffle Risotto" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                
+                <!-- Dish Details -->
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Truffle Risotto</h3>
+                    <p class="text-gray-600 mb-4">Slow-stirred Artibonite, aged Parmesan, black truffle</p>
+                    
+                    <!-- Price and Rating -->
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">$55</span>
+                        <span class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-600">4.5</span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- ===== Dish 2: Wagyu Steak ===== -->
+            <!-- Entire card is clickable and redirects to dish detail page -->
+            <a href="{% url 'menu_detail' 'wagyu-steak' %}" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 group cursor-pointer">
+                
+                <!-- Dish Image -->
+                <div class="h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=500" 
+                         alt="Wagyu Steak" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                
+                <!-- Dish Details -->
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Wagyu Steak</h3>
+                    <p class="text-gray-600 mb-4">AS Wagyu, herb butter, roasted bone marrow</p>
+                    
+                    <!-- Price and Rating -->
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">$104</span>
+                        <span class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-600">4.8</span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- ===== Dish 3: Grilled Salmon ===== -->
+            <!-- Entire card is clickable and redirects to dish detail page -->
+            <a href="{% url 'menu_detail' 'grilled-salmon' %}" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 group cursor-pointer">
+                
+                <!-- Dish Image -->
+                <div class="h-56 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" 
+                         alt="Grilled Salmon" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                
+                <!-- Dish Details -->
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Grilled Salmon</h3>
+                    <p class="text-gray-600 mb-4">Atlantic salmon, lemon butter, asparagus</p>
+                    
+                    <!-- Price and Rating -->
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">$65</span>
+                        <span class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-600">4.6</span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CALL TO ACTION SECTION ==================== -->
+<!-- Final CTA to encourage users to order -->
+<section class="py-16 bg-red-600">
+    <div class="max-w-4xl mx-auto text-center text-white px-4">
+        <h2 class="text-3xl font-playfair font-bold mb-4">Ready to Order?</h2>
+        <p class="text-xl mb-8">Get your favorite food delivered to your doorstep</p>
+        
+        <!-- Order Now Button -->
+        <a href="{% url 'menu_list' %}" class="bg-white text-red-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition duration-300">
+            Order Now
+        </a>
+    </div>
+</section>
+
+{% endblock %}

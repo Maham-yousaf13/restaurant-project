@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cart - AMECO Restaurant{% endblock %}
+
+{% block content %}
+<div class="pt-20 pb-16 bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4">
+        
+        <!-- Page Title -->
+        <h1 class="text-3xl font-playfair font-bold text-gray-900 mb-8">Your Cart</h1>
+        
+        {% if cart_items %}
+            <!-- Cart Items List -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-6">
+                <div class="divide-y divide-gray-200">
+                    {% for item in cart_items %}
+                    <div class="p-6 flex items-center gap-6">
+                        <!-- Item Image -->
+                        <div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                            {% if item.image %}
+                                <img src="{{ item.image }}" alt="{{ item.name }}" class="w-full h-full object-cover">
+                            {% else %}
+                                <img src="https://via.placeholder.com/100x100?text={{ item.name }}" alt="{{ item.name }}" class="w-full h-full object-cover">
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Item Details -->
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-gray-900">{{ item.name }}</h3>
+                            <p class="text-gray-600">${{ item.price|floatformat:2 }}</p>
+                        </div>
+                        
+                        <!-- Quantity Controls -->
+                        <div class="flex items-center gap-3">
+                            <button class="quantity-btn w-8 h-8 bg-gray-200 rounded-full hover:bg-gray-300 transition" 
+                                    data-item="{{ item.id }}" data-action="decrease">
+                                <i class="fas fa-minus text-sm"></i>
+                            </button>
+                            <span class="text-lg font-semibold w-8 text-center">{{ item.quantity }}</span>
+                            <button class="quantity-btn w-8 h-8 bg-gray-200 rounded-full hover:bg-gray-300 transition" 
+                                    data-item="{{ item.id }}" data-action="increase">
+                                <i class="fas fa-plus text-sm"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Item Total -->
+                        <div class="text-right min-w-24">
+                            <p class="text-lg font-bold text-gray-900">
+                                ${{ item.price|floatformat:2 }}
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Cart Summary -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex justify-between mb-2">
+                    <span class="text-gray-600">Subtotal</span>
+                    <span class="font-semibold">${{ subtotal|floatformat:2 }}</span>
+                </div>
+                <div class="flex justify-between mb-2">
+                    <span class="text-gray-600">Tax (10%)</span>
+                    <span class="font-semibold">${{ tax|floatformat:2 }}</span>
+                </div>
+                <div class="flex justify-between mb-4">
+                    <span class="text-gray-600">Delivery</span>
+                    <span class="font-semibold">${{ delivery_charge|floatformat:2 }}</span>
+                </div>
+                <div class="border-t border-gray-200 pt-4 flex justify-between">
+                    <span class="text-xl font-bold">Total</span>
+                    <span class="text-2xl font-bold text-red-600">
+                        ${{ grand_total|floatformat:2 }}
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 mt-6">
+                <a href="{% url 'checkout' %}" class="flex-1 bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition text-center font-semibold">
+                    <i class="fas fa-credit-card mr-2"></i> Proceed to Checkout
+                </a>
+                <a href="{% url 'menu_list' %}" class="px-6 py-3 border-2 border-gray-300 rounded-lg hover:bg-gray-50 transition text-center">
+                    <i class="fas fa-arrow-left mr-2"></i> Continue Shopping
+                </a>
+                <a href="{% url 'clear_cart' %}" class="px-6 py-3 border-2 border-red-300 text-red-600 rounded-lg hover:bg-red-50 transition text-center">
+                    <i class="fas fa-trash mr-2"></i> Clear Cart
+                </a>
+            </div>
+            
+        {% else %}
+            <!-- Empty Cart Message -->
+            <div class="bg-white rounded-xl shadow-lg p-12 text-center">
+                <i class="fas fa-shopping-cart text-6xl text-gray-300 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">Your Cart is Empty</h3>
+                <p class="text-gray-500 mb-6">Looks like you haven't added any items yet.</p>
+                <a href="{% url 'menu_list' %}" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition">
+                    <i class="fas fa-utensils mr-2"></i> Browse Menu
+                </a>
+            </div>
+        {% endif %}
+        
+    </div>
+</div>
+
+<!-- JavaScript for quantity updates -->
+<script>
+    document.querySelectorAll('.quantity-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const itemId = this.dataset.item;
+            const action = this.dataset.action;
+            
+            fetch('{% url "update_cart" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: `item_id=${itemId}&action=${action}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

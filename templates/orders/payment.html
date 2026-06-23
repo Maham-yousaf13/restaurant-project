@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Payment - AMECO Restaurant{% endblock %}
+
+{% block extra_css %}
+<style>
+    .StripeElement {
+        background-color: white;
+        padding: 12px 16px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        transition: border-color 0.15s ease;
+    }
+    .StripeElement--focus {
+        border-color: #ef4444;
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+    .StripeElement--invalid {
+        border-color: #dc2626;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="pt-20 pb-16 bg-gray-50 min-h-screen">
+    <div class="max-w-2xl mx-auto px-4">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            
+            <!-- Header -->
+            <div class="bg-red-600 px-6 py-6 text-center">
+                <h1 class="text-2xl font-playfair font-bold text-white">Complete Payment</h1>
+                <p class="text-red-100 mt-1">Secure payment with Stripe</p>
+            </div>
+            
+            <div class="p-8">
+                <!-- Order Summary -->
+                <div class="mb-6 p-4 bg-gray-50 rounded-lg">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="text-sm text-gray-500">Order #{{ order.order_number }}</p>
+                            <p class="text-2xl font-bold text-red-600">${{ order.total|floatformat:2 }}</p>
+                        </div>
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-600 rounded-full text-sm font-semibold">
+                            {{ order.get_status_display }}
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Payment Form -->
+                <form id="payment-form">
+                    {% csrf_token %}
+                    
+                    <!-- Card Element -->
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Card Details
+                        </label>
+                        <div id="card-element" class="StripeElement"></div>
+                    </div>
+                    
+                    <!-- Card Errors -->
+                    <div id="card-errors" class="text-red-600 text-sm mb-4"></div>
+                    
+                    <!-- Payment Button -->
+                    <button id="submit-btn" 
+                            class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span id="btn-text">
+                            <i class="fas fa-lock mr-2"></i> Pay ${{ order.total|floatformat:2 }}
+                        </span>
+                        <span id="btn-loading" class="hidden">
+                            <i class="fas fa-spinner fa-spin mr-2"></i> Processing...
+                        </span>
+                    </button>
+                </form>
+                
+                <!-- Security Badge -->
+                <div class="mt-6 text-center">
+                    <p class="text-xs text-gray-500">
+                        <i class="fas fa-shield-alt text-green-600 mr-1"></i>
+                        Your payment is secure and encrypted
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stripe JS Library -->
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+    // Initialize Stripe
+    const stripe = Stripe('{{ STRIPE_PUBLISHABLE_KEY }}');
+    const elements = stripe.elements();
+    
+    // Create Card Element
+    const cardElement = elements.create('card', {
+        style: {
+            base: {
+                fontSize: '16px',
+                color: '#1f2937',
+                '::placeholder': {
+                    color: '#9ca3af'
+                }
+            }
+        }
+    });
+    cardElement.mount('#card-element');
+    
+    // Handle card errors
+    cardElement.on('change', function(event) {
+        const displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
+        } else {
+            displayError.textContent = '';
+        }
+    });
+    
+    // Handle form submission
+    const form = document.getElementById('payment-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnLoading = document.getElementById('btn-loading');
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        btnText.classList.add('hidden');
+        btnLoading.classList.remove('hidden');
+        
+        try {
+            // Get client secret from server
+            const response = await fetch("{% url 'create_payment_intent' order.id %}");
+            const data = await response.json();
+            
+            if (data.error) {
+                throw new Error(data.error);
+            }
+            
+            // Confirm payment
+            const { paymentIntent, error } = await stripe.confirmCardPayment(
+                data.client_secret,
+                {
+                    payment_method: {
+                        card: cardElement,
+                    }
+                }
+            );
+            
+            if (error) {
+                throw new Error(error.message);
+            }
+            
+            if (paymentIntent.status === 'succeeded') {
+                // Redirect to success page
+                window.location.href = "{% url 'payment_success' order.id %}";
+            }
+        } catch (error) {
+            document.getElementById('card-errors').textContent = error.message;
+            
+            // Reset button
+            submitBtn.disabled = false;
+            btnText.classList.remove('hidden');
+            btnLoading.classList.add('hidden');
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Book a Table - AMECO Restaurant{% endblock %}
+
+{% block content %}
+<div class="pt-20 pb-16 bg-gray-50 min-h-screen">
+    <div class="max-w-3xl mx-auto px-4">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-red-600 px-6 py-8 text-center">
+                <h1 class="text-3xl font-playfair font-bold text-white">Book a Table</h1>
+                <p class="text-red-100 mt-2">Reserve your table for an unforgettable dining experience</p>
+            </div>
+            
+            <div class="p-8">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-6">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                
+                <form method="POST" class="space-y-6">
+                    {% csrf_token %}
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="id_name" class="block text-sm font-medium text-gray-700 mb-1">
+                                Full Name <span class="text-red-500">*</span>
+                            </label>
+                            {{ form.name }}
+                            {% if form.name.errors %}
+                                <p class="text-red-500 text-sm mt-1">{{ form.name.errors.0 }}</p>
+                            {% endif %}
+                        </div>
+                        
+                        <div>
+                            <label for="id_email" class="block text-sm font-medium text-gray-700 mb-1">
+                                Email <span class="text-red-500">*</span>
+                            </label>
+                            {{ form.email }}
+                            {% if form.email.errors %}
+                                <p class="text-red-500 text-sm mt-1">{{ form.email.errors.0 }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="id_phone" class="block text-sm font-medium text-gray-700 mb-1">
+                            Phone Number <span class="text-red-500">*</span>
+                        </label>
+                        {{ form.phone }}
+                        {% if form.phone.errors %}
+                            <p class="text-red-500 text-sm mt-1">{{ form.phone.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label for="id_date" class="block text-sm font-medium text-gray-700 mb-1">
+                                Date <span class="text-red-500">*</span>
+                            </label>
+                            {{ form.date }}
+                            {% if form.date.errors %}
+                                <p class="text-red-500 text-sm mt-1">{{ form.date.errors.0 }}</p>
+                            {% endif %}
+                        </div>
+                        
+                        <div>
+                            <label for="id_time" class="block text-sm font-medium text-gray-700 mb-1">
+                                Time <span class="text-red-500">*</span>
+                            </label>
+                            {{ form.time }}
+                            {% if form.time.errors %}
+                                <p class="text-red-500 text-sm mt-1">{{ form.time.errors.0 }}</p>
+                            {% endif %}
+                        </div>
+                        
+                        <div>
+                            <label for="id_guests" class="block text-sm font-medium text-gray-700 mb-1">
+                                Number of Guests <span class="text-red-500">*</span>
+                            </label>
+                            {{ form.guests }}
+                            {% if form.guests.errors %}
+                                <p class="text-red-500 text-sm mt-1">{{ form.guests.errors.0 }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="id_special_requests" class="block text-sm font-medium text-gray-700 mb-1">
+                            Special Requests
+                        </label>
+                        {{ form.special_requests }}
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition duration-300 font-semibold">
+                        <i class="fas fa-calendar-check mr-2"></i> Book Table
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

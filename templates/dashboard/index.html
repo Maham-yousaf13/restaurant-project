@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - AMECO Restaurant{% endblock %}
+
+{% block content %}
+<div class="pt-20 pb-16 bg-gray-50 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-3xl font-playfair font-bold text-gray-900">Dashboard</h1>
+                <p class="text-gray-600">Welcome back, {{ user.username }}!</p>
+            </div>
+            <div class="flex gap-3">
+                <a href="{% url 'admin:index' %}" class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+                    <i class="fas fa-cog mr-2"></i> Admin Panel
+                </a>
+            </div>
+        </div>
+        
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Total Orders -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-gray-500">Total Orders</p>
+                        <p class="text-3xl font-bold text-gray-900">{{ total_orders }}</p>
+                        <p class="text-xs text-gray-400 mt-1">
+                            <span class="text-green-500">{{ today_orders }}</span> today
+                        </p>
+                    </div>
+                    <div class="bg-blue-100 p-3 rounded-full">
+                        <i class="fas fa-shopping-bag text-blue-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Revenue -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-gray-500">Revenue</p>
+                        <p class="text-3xl font-bold text-green-600">${{ total_revenue|floatformat:0 }}</p>
+                        <p class="text-xs text-gray-400 mt-1">
+                            <span class="text-green-500">${{ today_revenue|floatformat:0 }}</span> today
+                        </p>
+                    </div>
+                    <div class="bg-green-100 p-3 rounded-full">
+                        <i class="fas fa-dollar-sign text-green-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Avg Order Value -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-gray-500">Avg Order Value</p>
+                        <p class="text-3xl font-bold text-gray-900">${{ avg_order_value|floatformat:2 }}</p>
+                        <p class="text-xs text-gray-400 mt-1">Per order</p>
+                    </div>
+                    <div class="bg-purple-100 p-3 rounded-full">
+                        <i class="fas fa-chart-line text-purple-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Menu Items -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-gray-500">Menu Items</p>
+                        <p class="text-3xl font-bold text-gray-900">{{ total_menu_items }}</p>
+                        <p class="text-xs text-gray-400 mt-1">
+                            <span class="text-green-500">{{ active_menu_items }}</span> active
+                        </p>
+                    </div>
+                    <div class="bg-orange-100 p-3 rounded-full">
+                        <i class="fas fa-utensils text-orange-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Order Status -->
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
+            <div class="bg-white rounded-xl shadow-lg p-4 text-center">
+                <p class="text-sm text-gray-500">Total</p>
+                <p class="text-2xl font-bold text-gray-900">{{ total_orders }}</p>
+            </div>
+            <div class="bg-yellow-50 rounded-xl shadow-lg p-4 text-center border-l-4 border-yellow-500">
+                <p class="text-sm text-yellow-600">Pending</p>
+                <p class="text-2xl font-bold text-yellow-600">{{ pending_orders }}</p>
+            </div>
+            <div class="bg-blue-50 rounded-xl shadow-lg p-4 text-center border-l-4 border-blue-500">
+                <p class="text-sm text-blue-600">Preparing</p>
+                <p class="text-2xl font-bold text-blue-600">{{ preparing_orders }}</p>
+            </div>
+            <div class="bg-green-50 rounded-xl shadow-lg p-4 text-center border-l-4 border-green-500">
+                <p class="text-sm text-green-600">Completed</p>
+                <p class="text-2xl font-bold text-green-600">{{ completed_orders }}</p>
+            </div>
+            <div class="bg-red-50 rounded-xl shadow-lg p-4 text-center border-l-4 border-red-500">
+                <p class="text-sm text-red-600">Cancelled</p>
+                <p class="text-2xl font-bold text-red-600">{{ cancelled_orders }}</p>
+            </div>
+        </div>
+        
+        <!-- Two Column Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Top Selling Items -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">
+                    <i class="fas fa-trophy text-yellow-500 mr-2"></i> Top Selling Items
+                </h2>
+                {% if top_items %}
+                <div class="space-y-3">
+                    {% for item in top_items %}
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="font-medium text-gray-800">{{ item.items__menu_item__name|default:"Item" }}</span>
+                        <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-semibold">
+                            {{ item.total_sold }} sold
+                        </span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="text-gray-500 text-center py-4">No sales data available</p>
+                {% endif %}
+            </div>
+            
+            <!-- Recent Orders -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">
+                    <i class="fas fa-clock text-blue-500 mr-2"></i> Recent Orders
+                </h2>
+                {% if recent_orders %}
+                <div class="space-y-3">
+                    {% for order in recent_orders %}
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <div>
+                            <span class="font-medium text-gray-800">#{{ order.order_number }}</span>
+                            <span class="text-sm text-gray-500 ml-2">{{ order.customer_name }}</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-sm text-gray-600">${{ order.total|floatformat:2 }}</span>
+                            <span class="px-2 py-1 rounded-full text-xs font-semibold
+                                {% if order.status == 'pending' %}bg-yellow-100 text-yellow-600
+                                {% elif order.status == 'preparing' %}bg-blue-100 text-blue-600
+                                {% elif order.status == 'completed' %}bg-green-100 text-green-600
+                                {% elif order.status == 'cancelled' %}bg-red-100 text-red-600
+                                {% else %}bg-gray-100 text-gray-600{% endif %}">
+                                {{ order.get_status_display }}
+                            </span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="text-gray-500 text-center py-4">No recent orders</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-8">
+            <a href="{% url 'admin:menu_menuitem_add' %}" class="bg-red-600 text-white p-4 rounded-xl text-center hover:bg-red-700 transition">
+                <i class="fas fa-plus-circle text-2xl block mb-2"></i>
+                <span>Add Menu Item</span>
+            </a>
+            <a href="{% url 'admin:orders_order_add' %}" class="bg-blue-600 text-white p-4 rounded-xl text-center hover:bg-blue-700 transition">
+                <i class="fas fa-shopping-cart text-2xl block mb-2"></i>
+                <span>Create Order</span>
+            </a>
+            <a href="{% url 'admin:blog_blogpost_add' %}" class="bg-green-600 text-white p-4 rounded-xl text-center hover:bg-green-700 transition">
+                <i class="fas fa-pen text-2xl block mb-2"></i>
+                <span>Write Blog</span>
+            </a>
+            <a href="{% url 'admin:index' %}" class="bg-gray-600 text-white p-4 rounded-xl text-center hover:bg-gray-700 transition">
+                <i class="fas fa-cogs text-2xl block mb-2"></i>
+                <span>Full Admin</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

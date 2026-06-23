@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Customer Reviews - AMECO Restaurant{% endblock %}
+
+{% block content %}
+<div class="pt-20 pb-16 bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4">
+        
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-playfair font-bold text-gray-900">Customer Reviews</h1>
+            <p class="text-gray-600 mt-2">What our customers say about us</p>
+        </div>
+        
+        <!-- Feedback Button -->
+        <div class="text-center mb-8">
+            <a href="{% url 'submit_feedback' %}" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition">
+                <i class="fas fa-pen mr-2"></i> Write a Review
+            </a>
+        </div>
+        
+        <!-- Feedback List -->
+        {% if feedbacks %}
+            <div class="space-y-6">
+                {% for feedback in feedbacks %}
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">{{ feedback.name }}</h3>
+                            <div class="text-yellow-500 text-lg">
+                                {% for i in "12345" %}
+                                    {% if forloop.counter <= feedback.rating %}
+                                        <i class="fas fa-star"></i>
+                                    {% else %}
+                                        <i class="far fa-star"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <span class="text-sm text-gray-500">{{ feedback.created_at|date:"M d, Y" }}</span>
+                    </div>
+                    <p class="text-gray-600 mt-3">{{ feedback.comment }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="bg-white rounded-xl shadow-lg p-12 text-center">
+                <i class="fas fa-star text-6xl text-gray-300 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">No Reviews Yet</h3>
+                <p class="text-gray-500 mb-4">Be the first to share your experience!</p>
+                <a href="{% url 'submit_feedback' %}" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition">
+                    <i class="fas fa-pen mr-2"></i> Write a Review
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

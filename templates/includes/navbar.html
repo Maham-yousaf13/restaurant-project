@@ -1,0 +1,180 @@
+<!-- ==================== NAVBAR - MAIN NAVIGATION ==================== -->
+<!-- This is the main navigation bar that appears at the top of every page -->
+<nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+            
+            <!-- ============ LOGO SECTION ============ -->
+            <div class="flex items-center">
+                <a href="{% url 'home' %}" class="text-2xl font-bold font-playfair text-red-600">
+                    AMECO
+                </a>
+                <span class="ml-2 text-sm text-gray-400">Restaurant</span>
+            </div>
+            
+            <!-- ============ DESKTOP MENU ============ -->
+            <!-- Visible on medium screens and above (md:flex) -->
+            <div class="hidden md:flex items-center space-x-8">
+                
+                <!-- Home Page Link -->
+                <a href="{% url 'home' %}" class="text-gray-700 hover:text-red-600 transition duration-300">
+                    <i class="fas fa-home mr-1"></i> Home
+                </a>
+                
+                <!-- Menu Page Link -->
+                <a href="{% url 'menu_list' %}" class="text-gray-700 hover:text-red-600 transition duration-300">
+                    <i class="fas fa-utensils mr-1"></i> Menu
+                </a>
+                
+                <!-- Blog Page Link -->
+                <a href="{% url 'blog_list' %}" class="text-gray-700 hover:text-red-600 transition duration-300">
+                    <i class="fas fa-blog mr-1"></i> Blog
+                </a>
+                
+                <!-- Dashboard Link (Admin only) -->
+                <a href="{% url 'dashboard' %}" class="text-gray-700 hover:text-red-600 transition duration-300">
+                    <i class="fas fa-chart-pie mr-1"></i> Dashboard
+                </a>
+                
+                <!-- Manage Orders Link (Admin only) -->
+                <a href="{% url 'admin_orders' %}" class="text-gray-700 hover:text-red-600 transition duration-300">
+                    <i class="fas fa-clipboard-list mr-1"></i> Manage Orders
+                </a>
+                
+                <!-- Order History Link -->
+                <a href="{% url 'order_history' %}" class="text-gray-700 hover:text-red-600 transition duration-300">
+                    <i class="fas fa-shopping-bag mr-1"></i> My Orders
+                </a>
+                
+                <!-- Book a Table Link -->
+                <a href="{% url 'book_table' %}" class="text-gray-700 hover:text-red-600 transition duration-300">
+                    <i class="fas fa-calendar-alt mr-1"></i> Book a Table
+                </a>
+                
+                <!-- Feedback Link -->
+                <a href="{% url 'submit_feedback' %}" class="text-gray-700 hover:text-red-600 transition duration-300">
+                    <i class="fas fa-star mr-1"></i> Feedback
+                </a>
+                
+                <!-- ============ CART ICON WITH COUNT ============ -->
+                <!-- Shows number of items in cart -->
+                <a href="{% url 'view_cart' %}" class="text-gray-700 hover:text-red-600 transition duration-300 relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    {% if request.session.cart %}
+                    <span class="absolute -top-2 -right-3 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                        {{ request.session.cart.values|length }}
+                    </span>
+                    {% endif %}
+                </a>
+            </div>
+            
+            <!-- ============ AUTHENTICATION BUTTONS ============ -->
+            <div class="flex items-center space-x-4">
+                {% if user.is_authenticated %}
+                    <!-- Logged In User Menu -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-2 text-gray-700 hover:text-red-600">
+                            <i class="fas fa-user-circle text-2xl"></i>
+                            <span>{{ user.username }}</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl hidden group-hover:block">
+                            <a href="{% url 'profile' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-user mr-2"></i> Profile
+                            </a>
+                            <a href="{% url 'order_history' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-shopping-bag mr-2"></i> My Orders
+                            </a>
+                            <a href="{% url 'book_table' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-calendar-alt mr-2"></i> Book a Table
+                            </a>
+                            <hr>
+                            <a href="{% url 'logout' %}" class="block px-4 py-2 text-red-600 hover:bg-gray-100">
+                                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                {% else %}
+                    <!-- Logged Out User - Show Login/Register -->
+                    <a href="{% url 'login' %}" class="text-gray-700 hover:text-red-600 transition duration-300">
+                        <i class="fas fa-sign-in-alt mr-1"></i> Login
+                    </a>
+                    <a href="{% url 'register' %}" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300">
+                        <i class="fas fa-user-plus mr-1"></i> Register
+                    </a>
+                {% endif %}
+            </div>
+            
+            <!-- ============ MOBILE MENU TOGGLE ============ -->
+            <!-- Visible only on small screens (md:hidden) -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-red-600">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- ============ MOBILE MENU ============ -->
+    <!-- Hidden by default, shown when hamburger icon is clicked -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+        <div class="px-4 py-3 space-y-3">
+            
+            <!-- Mobile Navigation Links -->
+            <a href="{% url 'home' %}" class="block text-gray-700 hover:text-red-600">
+                <i class="fas fa-home mr-2"></i> Home
+            </a>
+            <a href="{% url 'menu_list' %}" class="block text-gray-700 hover:text-red-600">
+                <i class="fas fa-utensils mr-2"></i> Menu
+            </a>
+            <a href="{% url 'blog_list' %}" class="block text-gray-700 hover:text-red-600">
+                <i class="fas fa-blog mr-2"></i> Blog
+            </a>
+            <a href="{% url 'dashboard' %}" class="block text-gray-700 hover:text-red-600">
+                <i class="fas fa-chart-pie mr-2"></i> Dashboard
+            </a>
+            <a href="{% url 'admin_orders' %}" class="block text-gray-700 hover:text-red-600">
+                <i class="fas fa-clipboard-list mr-2"></i> Manage Orders
+            </a>
+            <a href="{% url 'order_history' %}" class="block text-gray-700 hover:text-red-600">
+                <i class="fas fa-shopping-bag mr-2"></i> My Orders
+            </a>
+            <a href="{% url 'book_table' %}" class="block text-gray-700 hover:text-red-600">
+                <i class="fas fa-calendar-alt mr-2"></i> Book a Table
+            </a>
+            <a href="{% url 'submit_feedback' %}" class="block text-gray-700 hover:text-red-600">
+                <i class="fas fa-star mr-2"></i> Feedback
+            </a>
+            
+            <!-- Mobile Cart Link with Count -->
+            <a href="{% url 'view_cart' %}" class="block text-gray-700 hover:text-red-600">
+                <i class="fas fa-shopping-cart mr-2"></i> Cart
+                {% if request.session.cart %}
+                <span class="bg-red-600 text-white text-xs rounded-full px-2 py-1 ml-1">
+                    {{ request.session.cart.values|length }}
+                </span>
+                {% endif %}
+            </a>
+            
+            <!-- Mobile Auth Links -->
+            {% if not user.is_authenticated %}
+                <hr>
+                <a href="{% url 'login' %}" class="block text-gray-700 hover:text-red-600">
+                    <i class="fas fa-sign-in-alt mr-2"></i> Login
+                </a>
+                <a href="{% url 'register' %}" class="block bg-red-600 text-white px-4 py-2 rounded-lg text-center hover:bg-red-700">
+                    <i class="fas fa-user-plus mr-2"></i> Register
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<!-- ============ JAVASCRIPT - MOBILE MENU TOGGLE ============ -->
+<!-- Handles showing/hiding mobile menu when hamburger icon is clicked -->
+<script>
+    // Get the mobile menu toggle button and mobile menu element
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        // Toggle the 'hidden' class to show/hide the mobile menu
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+</script>

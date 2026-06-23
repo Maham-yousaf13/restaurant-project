@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }} - AMECO Restaurant{% endblock %}
+
+{% block content %}
+<div class="pt-20 pb-16 bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4">
+        
+        <!-- Blog Post -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            
+            <!-- Featured Image -->
+            {% if post.featured_image %}
+            <div class="h-96 overflow-hidden">
+                <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="w-full h-full object-cover">
+            </div>
+            {% endif %}
+            
+            <!-- Content -->
+            <div class="p-8">
+                
+                <!-- Meta Info -->
+                <div class="flex flex-wrap items-center text-sm text-gray-500 gap-2 mb-4">
+                    <span class="bg-gray-100 px-3 py-1 rounded-full">{{ post.category.name|default:"Uncategorized" }}</span>
+                    <span class="mx-1">•</span>
+                    <span><i class="far fa-calendar mr-1"></i> {{ post.created_at|date:"M d, Y" }}</span>
+                    <span class="mx-1">•</span>
+                    <span><i class="far fa-user mr-1"></i> {{ post.author.username }}</span>
+                    <span class="mx-1">•</span>
+                    <span><i class="far fa-eye mr-1"></i> {{ post.views }} views</span>
+                    <span class="mx-1">•</span>
+                    <span><i class="far fa-comment mr-1"></i> {{ comments.count }} comments</span>
+                </div>
+                
+                <!-- Title -->
+                <h1 class="text-3xl font-playfair font-bold text-gray-900 mb-4">{{ post.title }}</h1>
+                
+                <!-- Content -->
+                <div class="prose max-w-none text-gray-700 leading-relaxed">
+                    {{ post.content|linebreaks }}
+                </div>
+                
+                <!-- Share Buttons -->
+                <div class="border-t border-gray-200 mt-8 pt-6">
+                    <p class="text-sm text-gray-500 mb-3">Share this post:</p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" 
+                           target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title }}" 
+                           target="_blank" class="bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://api.whatsapp.com/send?text={{ post.title }} - {{ request.build_absolute_uri }}" 
+                           target="_blank" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}" 
+                           target="_blank" class="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Back Button -->
+                <div class="mt-6">
+                    <a href="{% url 'blog_list' %}" class="text-red-600 hover:text-red-700 font-semibold">
+                        <i class="fas fa-arrow-left mr-2"></i> Back to Blog
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ============ COMMENTS SECTION ============ -->
+        <div class="mt-8 bg-white rounded-xl shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                <i class="far fa-comment mr-2"></i> Comments ({{ comments.count }})
+            </h2>
+            
+            <!-- Comment Form -->
+            {% if user.is_authenticated %}
+            <form method="POST" class="mb-8">
+                {% csrf_token %}
+                <div class="flex gap-3">
+                    <input type="text" name="content" placeholder="Write a comment..." required
+                           class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <button type="submit" class="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">
+                        <i class="fas fa-paper-plane mr-2"></i> Post
+                    </button>
+                </div>
+            </form>
+            {% else %}
+            <div class="bg-gray-50 rounded-lg p-4 mb-8 text-center">
+                <p class="text-gray-600">
+                    <a href="{% url 'login' %}" class="text-red-600 hover:text-red-700">Login</a> to leave a comment.
+                </p>
+            </div>
+            {% endif %}
+            
+            <!-- Comments List -->
+            {% if comments %}
+                <div class="space-y-6">
+                    {% for comment in comments %}
+                    <div class="border-b border-gray-100 pb-6 last:border-0 last:pb-0">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="font-semibold text-gray-900">{{ comment.user.username }}</p>
+                                <p class="text-sm text-gray-500">{{ comment.created_at|date:"M d, Y H:i" }}</p>
+                            </div>
+                            <span class="text-green-600 text-sm">
+                                <i class="fas fa-check-circle"></i> Approved
+                            </span>
+                        </div>
+                        <p class="text-gray-700 mt-2">{{ comment.content }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-gray-500 text-center py-4">No comments yet. Be the first!</p>
+            {% endif %}
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
