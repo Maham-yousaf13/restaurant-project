@@ -1,11 +1,11 @@
-echo Django==5.2.15 > requirements.txt
-echo djangorestframework==3.15.2 >> requirements.txt
-echo django-cors-headers==4.4.0 >> requirements.txt
-echo djangorestframework-simplejwt==5.3.1 >> requirements.txt
-echo python-dotenv==1.0.1 >> requirements.txt
-echo django-environ==0.11.2 >> requirements.txt
-echo Pillow==10.4.0 >> requirements.txt
-echo django-filter==24.3 >> requirements.txt
-echo stripe==15.2.1 >> requirements.txt
-echo gunicorn==22.0.0 >> requirements.txt
-echo whitenoise==6.7.0 >> requirements.txt
+Django==5.2.15
+djangorestframework==3.15.2
+django-cors-headers==4.4.0
+djangorestframework-simplejwt==5.3.1
+python-dotenv==1.0.1
+django-environ==0.11.2
+Pillow==10.4.0
+django-filter==24.3
+stripe==15.2.1
+gunicorn==22.0.0
+whitenoise==6.7.0
