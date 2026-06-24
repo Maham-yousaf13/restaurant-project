@@ -1,0 +1,1757 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-06-23T14:43:40.949Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Mains",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-06-23T14:44:00.492Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Pizza",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-06-23T14:44:11.611Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Starters",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-06-23T14:44:21.562Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Drinks",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-06-23T14:44:30.766Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Desserts",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-06-23T14:53:14.884Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Truffle Risotto",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Truffle Risotto - Extra Image\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-06-23T15:00:00.773Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Wagyu Steak",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Wagyu Steak - Extra Image\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-06-23T15:02:33.829Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Grilled Salmon",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Grilled Salmon - Extra Image\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-06-23T15:02:47.127Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Truffle Risotto",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Rating\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-06-23T15:03:14.608Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Wagyu Steak",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Rating\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-06-23T15:06:10.057Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Margherita Pizza",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Margherita Pizza - Extra Image\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-06-23T15:07:59.243Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Pepperoni Pizza",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Pepperoni Pizza - Extra Image\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-06-23T15:11:20.562Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Chicken Fried Rice",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Chicken Fried Rice - Extra Image\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-06-23T15:22:32.277Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Vanilla Bean Ice Cream",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Vanilla Bean Ice Cream - Extra Image\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-06-23T15:24:35.478Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "Summer Chipotle Chicken Cobb Salad",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Summer Chipotle Chicken Cobb Salad - Extra Image\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-06-23T15:27:06.445Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "Creamy Chicken Noodle Soup",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Creamy Chicken Noodle Soup - Extra Image\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-06-23T15:31:23.598Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "10",
+    "object_repr": "Chocolate Fondant",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Chocolate Fondant - Extra Image\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-06-23T15:50:46.089Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "11",
+    "object_repr": "Fresh Lemonade",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Fresh Lemonade - Extra Image\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-06-23T15:53:40.016Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "12",
+    "object_repr": "Cappuccino",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Cappuccino - Extra Image\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-06-23T15:57:36.903Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "13",
+    "object_repr": "Matcha Green Tea Latte",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Matcha Green Tea Latte - Extra Image\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-06-23T16:02:53.223Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "14",
+    "object_repr": "Mango Lassi",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"menu item image\", \"object\": \"Mango Lassi - Extra Image\"}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 6,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 6,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 6,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 6,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add menu item",
+    "content_type": 7,
+    "codename": "add_menuitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change menu item",
+    "content_type": 7,
+    "codename": "change_menuitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete menu item",
+    "content_type": 7,
+    "codename": "delete_menuitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view menu item",
+    "content_type": 7,
+    "codename": "view_menuitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add category",
+    "content_type": 8,
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change category",
+    "content_type": 8,
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete category",
+    "content_type": 8,
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view category",
+    "content_type": 8,
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add menu item image",
+    "content_type": 9,
+    "codename": "add_menuitemimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change menu item image",
+    "content_type": 9,
+    "codename": "change_menuitemimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete menu item image",
+    "content_type": 9,
+    "codename": "delete_menuitemimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view menu item image",
+    "content_type": 9,
+    "codename": "view_menuitemimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add order item",
+    "content_type": 10,
+    "codename": "add_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change order item",
+    "content_type": 10,
+    "codename": "change_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete order item",
+    "content_type": 10,
+    "codename": "delete_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view order item",
+    "content_type": 10,
+    "codename": "view_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add order",
+    "content_type": 11,
+    "codename": "add_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change order",
+    "content_type": 11,
+    "codename": "change_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete order",
+    "content_type": 11,
+    "codename": "delete_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view order",
+    "content_type": 11,
+    "codename": "view_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add blog comment",
+    "content_type": 12,
+    "codename": "add_blogcomment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change blog comment",
+    "content_type": 12,
+    "codename": "change_blogcomment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete blog comment",
+    "content_type": 12,
+    "codename": "delete_blogcomment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view blog comment",
+    "content_type": 12,
+    "codename": "view_blogcomment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add blog post",
+    "content_type": 13,
+    "codename": "add_blogpost"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change blog post",
+    "content_type": 13,
+    "codename": "change_blogpost"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete blog post",
+    "content_type": 13,
+    "codename": "delete_blogpost"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view blog post",
+    "content_type": 13,
+    "codename": "view_blogpost"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add blog category",
+    "content_type": 14,
+    "codename": "add_blogcategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change blog category",
+    "content_type": 14,
+    "codename": "change_blogcategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete blog category",
+    "content_type": 14,
+    "codename": "delete_blogcategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view blog category",
+    "content_type": 14,
+    "codename": "view_blogcategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add transaction",
+    "content_type": 15,
+    "codename": "add_transaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change transaction",
+    "content_type": 15,
+    "codename": "change_transaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete transaction",
+    "content_type": 15,
+    "codename": "delete_transaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view transaction",
+    "content_type": 15,
+    "codename": "view_transaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add reservation",
+    "content_type": 16,
+    "codename": "add_reservation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change reservation",
+    "content_type": 16,
+    "codename": "change_reservation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete reservation",
+    "content_type": 16,
+    "codename": "delete_reservation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view reservation",
+    "content_type": 16,
+    "codename": "view_reservation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can add Feedback",
+    "content_type": 17,
+    "codename": "add_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can change Feedback",
+    "content_type": 17,
+    "codename": "change_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can delete Feedback",
+    "content_type": 17,
+    "codename": "delete_feedback"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can view Feedback",
+    "content_type": 17,
+    "codename": "view_feedback"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "accounts",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "menu",
+    "model": "menuitem"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "menu",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "menu",
+    "model": "menuitemimage"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "orders",
+    "model": "orderitem"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "orders",
+    "model": "order"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "blog",
+    "model": "blogcomment"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "blog",
+    "model": "blogpost"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "blog",
+    "model": "blogcategory"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "transactions",
+    "model": "transaction"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "reservations",
+    "model": "reservation"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "feedback",
+    "model": "feedback"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "j4ed2nlg4j2f5xhej5p3qrhanku1hz1n",
+  "fields": {
+    "session_data": ".eJxVjE0OgyAYBe_CuiHQooLL7nsG8v1ZbBtNBFfGuxcTF-32zbzZVIS1pLhmWeLIqldWXX43BHrLdAB-wfScNc1TWUbUh6JPmvVjZvncT_cvkCCn-haCm2BAIbSta9AFGQZDDj20lg2KlwbIB7mSoCXDriPwlTN3Dm2oUYKlqH7b9y-DyD0k:1wc75M:yfWTWvMH5FC8sZibMkxqUElc0wal0ezvNi3dHjY98u0",
+    "expire_date": "2026-06-24T19:47:04.668Z"
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$YWKFIawjbcFs0JpIKuZffX$em+U6TPrPmrhYwX13qEY5xOsc3zkNKa+6kkvlIG/C7Y=",
+    "last_login": "2026-06-23T13:15:47.600Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-06-23T13:14:48.783Z",
+    "phone": null,
+    "address": null,
+    "profile_picture": "",
+    "is_restaurant_owner": false,
+    "created_at": "2026-06-23T13:14:49.133Z",
+    "updated_at": "2026-06-23T13:14:49.133Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "menu.category",
+  "pk": 1,
+  "fields": {
+    "name": "Mains",
+    "slug": "mains",
+    "icon": "",
+    "is_active": true,
+    "created_at": "2026-06-23T14:43:40.949Z"
+  }
+},
+{
+  "model": "menu.category",
+  "pk": 2,
+  "fields": {
+    "name": "Pizza",
+    "slug": "pizza",
+    "icon": "",
+    "is_active": true,
+    "created_at": "2026-06-23T14:44:00.492Z"
+  }
+},
+{
+  "model": "menu.category",
+  "pk": 3,
+  "fields": {
+    "name": "Starters",
+    "slug": "starters",
+    "icon": "",
+    "is_active": true,
+    "created_at": "2026-06-23T14:44:11.608Z"
+  }
+},
+{
+  "model": "menu.category",
+  "pk": 4,
+  "fields": {
+    "name": "Drinks",
+    "slug": "drinks",
+    "icon": "",
+    "is_active": true,
+    "created_at": "2026-06-23T14:44:21.562Z"
+  }
+},
+{
+  "model": "menu.category",
+  "pk": 5,
+  "fields": {
+    "name": "Desserts",
+    "slug": "desserts",
+    "icon": "",
+    "is_active": true,
+    "created_at": "2026-06-23T14:44:30.762Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 1,
+  "fields": {
+    "name": "Truffle Risotto",
+    "slug": "truffle-risotto",
+    "description": "Slow-stirred Artibonite, aged Parmesan, black truffle",
+    "price": "55.00",
+    "discount_price": "40.00",
+    "category": 1,
+    "image": "menu/Screenshot_2026-06-23_194856.png",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.9,
+    "preparation_time": 20,
+    "ingredients": "Arborio rice, Parmesan cheese, black truffle, butter, vegetable stock, white wine",
+    "calories": 450,
+    "created_at": "2026-06-23T14:53:14.884Z",
+    "updated_at": "2026-06-23T15:02:47.127Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 2,
+  "fields": {
+    "name": "Wagyu Steak",
+    "slug": "wagyu-steak",
+    "description": "Premium Australian Wagyu beef cooked to your preference, served with herb butter and roasted bone marrow. Perfectly seared for a melt-in-your-mouth experience.",
+    "price": "104.00",
+    "discount_price": "89.00",
+    "category": 1,
+    "image": "menu/Screenshot_2026-06-23_195912.png",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.9,
+    "preparation_time": 25,
+    "ingredients": "Australian Wagyu beef, herb butter, roasted bone marrow, garlic, rosemary, thyme",
+    "calories": 650,
+    "created_at": "2026-06-23T15:00:00.771Z",
+    "updated_at": "2026-06-23T15:03:14.608Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 3,
+  "fields": {
+    "name": "Grilled Salmon",
+    "slug": "grilled-salmon",
+    "description": "Fresh Atlantic salmon fillet grilled to perfection, served with lemon butter sauce and grilled asparagus. Light, healthy, and full of flavor.",
+    "price": "65.00",
+    "discount_price": null,
+    "category": 1,
+    "image": "menu/Screenshot_2026-06-23_200153.png",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.6,
+    "preparation_time": 18,
+    "ingredients": "Atlantic salmon, lemon butter, asparagus, garlic, olive oil, herbs",
+    "calories": 380,
+    "created_at": "2026-06-23T15:02:33.829Z",
+    "updated_at": "2026-06-23T15:02:33.829Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 4,
+  "fields": {
+    "name": "Margherita Pizza",
+    "slug": "margherita-pizza",
+    "description": "Classic Italian pizza topped with fresh tomato sauce, creamy mozzarella cheese, and fragrant basil leaves. Simple, authentic, and absolutely delicious.",
+    "price": "18.00",
+    "discount_price": "14.00",
+    "category": 2,
+    "image": "menu/Gemini_Generated_Image_dpwltedpwltedpwl.png",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.3,
+    "preparation_time": 15,
+    "ingredients": "Pizza dough, tomato sauce, fresh mozzarella, basil, olive oil",
+    "calories": 550,
+    "created_at": "2026-06-23T15:06:10.049Z",
+    "updated_at": "2026-06-23T15:06:10.055Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 5,
+  "fields": {
+    "name": "Pepperoni Pizza",
+    "slug": "pepperoni-pizza",
+    "description": "Crispy pizza loaded with spicy pepperoni, melted mozzarella cheese, and rich tomato sauce. A crowd-pleaser that hits the spot every time.",
+    "price": "22.00",
+    "discount_price": null,
+    "category": 2,
+    "image": "menu/Gemini_Generated_Image_lxi215lxi215lxi2.jpg",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.4,
+    "preparation_time": 15,
+    "ingredients": "Pizza dough, tomato sauce, mozzarella, pepperoni, oregano",
+    "calories": 680,
+    "created_at": "2026-06-23T15:07:59.240Z",
+    "updated_at": "2026-06-23T15:07:59.240Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 6,
+  "fields": {
+    "name": "Chicken Fried Rice",
+    "slug": "chicken-fried-rice",
+    "description": "Wok-fried jasmine rice with tender chicken breast, scrambled eggs, and fresh vegetables. Seasoned with soy sauce and aromatic garlic for an authentic Asian taste.",
+    "price": "29.00",
+    "discount_price": "24.00",
+    "category": 1,
+    "image": "menu/Gemini_Generated_Image_1hri2i1hri2i1hri.png",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.2,
+    "preparation_time": 12,
+    "ingredients": "Jasmine rice, chicken breast, eggs, carrots, peas, soy sauce, garlic, spring onions",
+    "calories": 420,
+    "created_at": "2026-06-23T15:11:20.556Z",
+    "updated_at": "2026-06-23T15:11:20.556Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 7,
+  "fields": {
+    "name": "Vanilla Bean Ice Cream",
+    "slug": "vanilla-bean-ice-cream",
+    "description": "Creamy, smooth, and rich vanilla bean ice cream made from the finest ingredients. Served with a dusting of cinnamon and a crunchy wafer.",
+    "price": "8.00",
+    "discount_price": null,
+    "category": 5,
+    "image": "menu/Gemini_Generated_Image_egfy63egfy63egfy.jpg",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.7,
+    "preparation_time": 5,
+    "ingredients": "Vanilla bean, cream, milk, sugar, egg yolks",
+    "calories": 250,
+    "created_at": "2026-06-23T15:22:32.277Z",
+    "updated_at": "2026-06-23T15:22:32.277Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 8,
+  "fields": {
+    "name": "Summer Chipotle Chicken Cobb Salad",
+    "slug": "summer-chipotle-chicken-cobb-salad",
+    "description": "Fresh and vibrant salad with grilled chipotle chicken, crispy bacon, avocado, hard-boiled eggs, tomatoes, and blue cheese, drizzled with cilantro vinaigrette.",
+    "price": "24.00",
+    "discount_price": null,
+    "category": 3,
+    "image": "menu/Gemini_Generated_Image_9p8r139p8r139p8r.jpg",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.5,
+    "preparation_time": 15,
+    "ingredients": "Grilled chicken, chipotle sauce, bacon, avocado, eggs, tomatoes, blue cheese, cilantro vinaigrette",
+    "calories": 420,
+    "created_at": "2026-06-23T15:24:35.474Z",
+    "updated_at": "2026-06-23T15:24:35.474Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 9,
+  "fields": {
+    "name": "Creamy Chicken Noodle Soup",
+    "slug": "creamy-chicken-noodle-soup",
+    "description": "Hearty and comforting soup with tender chicken, egg noodles, carrots, celery, and herbs in a rich creamy broth. Perfect for any day.",
+    "price": "16.00",
+    "discount_price": "13.00",
+    "category": 3,
+    "image": "menu/Gemini_Generated_Image_y9d8m9y9d8m9y9d8.png",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.4,
+    "preparation_time": 20,
+    "ingredients": "Chicken, egg noodles, carrots, celery, onion, garlic, herbs, cream, chicken broth",
+    "calories": 320,
+    "created_at": "2026-06-23T15:27:06.434Z",
+    "updated_at": "2026-06-23T15:27:06.434Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 10,
+  "fields": {
+    "name": "Chocolate Fondant",
+    "slug": "chocolate-fondant",
+    "description": "Warm chocolate cake with a gooey, molten center. Served with creamy vanilla bean ice cream. A heavenly dessert for chocolate lovers.",
+    "price": "12.00",
+    "discount_price": null,
+    "category": 5,
+    "image": "menu/Gemini_Generated_Image_wktlyiwktlyiwktl.jpg",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.9,
+    "preparation_time": 10,
+    "ingredients": "Dark chocolate, butter, eggs, sugar, flour, vanilla bean ice cream",
+    "calories": 380,
+    "created_at": "2026-06-23T15:31:23.590Z",
+    "updated_at": "2026-06-23T15:31:23.590Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 11,
+  "fields": {
+    "name": "Fresh Lemonade",
+    "slug": "fresh-lemonade",
+    "description": "Refreshing homemade lemonade made with freshly squeezed lemons, pure cane sugar, and mint leaves. The perfect thirst-quencher on a hot day.",
+    "price": "6.00",
+    "discount_price": null,
+    "category": 4,
+    "image": "menu/Gemini_Generated_Image_xhemqjxhemqjxhem.jpg",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.5,
+    "preparation_time": 5,
+    "ingredients": "Fresh lemons, cane sugar, mint leaves, water, ice",
+    "calories": 120,
+    "created_at": "2026-06-23T15:50:46.070Z",
+    "updated_at": "2026-06-23T15:50:46.070Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 12,
+  "fields": {
+    "name": "Cappuccino",
+    "slug": "cappuccino",
+    "description": "Rich and creamy Italian-style cappuccino made with freshly brewed espresso, steamed milk, and topped with a thick layer of frothed milk foam.",
+    "price": "7.00",
+    "discount_price": null,
+    "category": 4,
+    "image": "menu/Gemini_Generated_Image_g0gmc1g0gmc1g0gm.png",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.8,
+    "preparation_time": 5,
+    "ingredients": "Espresso, steamed milk, milk foam, cocoa powder",
+    "calories": 150,
+    "created_at": "2026-06-23T15:53:40.000Z",
+    "updated_at": "2026-06-23T15:53:40.000Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 13,
+  "fields": {
+    "name": "Matcha Green Tea Latte",
+    "slug": "matcha-green-tea-latte",
+    "description": "Vibrant and earthy Japanese matcha green tea blended with creamy steamed milk. A healthy and energizing drink with a beautiful green color.",
+    "price": "9.00",
+    "discount_price": "7.00",
+    "category": 4,
+    "image": "menu/Gemini_Generated_Image_f7s0dzf7s0dzf7s0.png",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.6,
+    "preparation_time": 6,
+    "ingredients": "Matcha green tea powder, steamed milk, honey, hot water",
+    "calories": 180,
+    "created_at": "2026-06-23T15:57:36.886Z",
+    "updated_at": "2026-06-23T15:57:36.886Z"
+  }
+},
+{
+  "model": "menu.menuitem",
+  "pk": 14,
+  "fields": {
+    "name": "Mango Lassi",
+    "slug": "mango-lassi",
+    "description": "Classic Indian yogurt drink blended with sweet mango pulp, cardamom, and a hint of rose water. Sweet, creamy, and refreshing.",
+    "price": "8.00",
+    "discount_price": null,
+    "category": 4,
+    "image": "menu/Gemini_Generated_Image_pzqa10pzqa10pzqa.png",
+    "is_available": true,
+    "is_featured": false,
+    "rating": 4.9,
+    "preparation_time": 5,
+    "ingredients": "Mango pulp, yogurt, milk, sugar, cardamom, rose water, ice",
+    "calories": 200,
+    "created_at": "2026-06-23T16:02:53.207Z",
+    "updated_at": "2026-06-23T16:02:53.207Z"
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 1,
+  "fields": {
+    "menu_item": 1,
+    "image": "menu/extra/Screenshot_2026-06-23_194856.png",
+    "is_primary": true
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 2,
+  "fields": {
+    "menu_item": 2,
+    "image": "menu/extra/Screenshot_2026-06-23_195912.png",
+    "is_primary": false
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 3,
+  "fields": {
+    "menu_item": 3,
+    "image": "menu/extra/Screenshot_2026-06-23_200153.png",
+    "is_primary": false
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 4,
+  "fields": {
+    "menu_item": 4,
+    "image": "menu/extra/Gemini_Generated_Image_dpwltedpwltedpwl.png",
+    "is_primary": false
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 5,
+  "fields": {
+    "menu_item": 5,
+    "image": "menu/extra/Gemini_Generated_Image_lxi215lxi215lxi2.jpg",
+    "is_primary": false
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 6,
+  "fields": {
+    "menu_item": 6,
+    "image": "menu/extra/Gemini_Generated_Image_1hri2i1hri2i1hri.png",
+    "is_primary": false
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 7,
+  "fields": {
+    "menu_item": 7,
+    "image": "menu/extra/Gemini_Generated_Image_egfy63egfy63egfy.jpg",
+    "is_primary": false
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 8,
+  "fields": {
+    "menu_item": 8,
+    "image": "menu/extra/Gemini_Generated_Image_9p8r139p8r139p8r.jpg",
+    "is_primary": false
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 9,
+  "fields": {
+    "menu_item": 9,
+    "image": "menu/extra/Gemini_Generated_Image_y9d8m9y9d8m9y9d8.png",
+    "is_primary": false
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 10,
+  "fields": {
+    "menu_item": 10,
+    "image": "menu/extra/Gemini_Generated_Image_wktlyiwktlyiwktl.jpg",
+    "is_primary": false
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 11,
+  "fields": {
+    "menu_item": 11,
+    "image": "menu/extra/Gemini_Generated_Image_xhemqjxhemqjxhem.jpg",
+    "is_primary": false
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 12,
+  "fields": {
+    "menu_item": 12,
+    "image": "menu/extra/Gemini_Generated_Image_g0gmc1g0gmc1g0gm.png",
+    "is_primary": false
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 13,
+  "fields": {
+    "menu_item": 13,
+    "image": "menu/extra/Gemini_Generated_Image_f7s0dzf7s0dzf7s0.png",
+    "is_primary": false
+  }
+},
+{
+  "model": "menu.menuitemimage",
+  "pk": 14,
+  "fields": {
+    "menu_item": 14,
+    "image": "menu/extra/Gemini_Generated_Image_pzqa10pzqa10pzqa.png",
+    "is_primary": false
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 1,
+  "fields": {
+    "order_number": "",
+    "user": 1,
+    "customer_name": "admin",
+    "customer_phone": "..",
+    "customer_email": "xyz@gmail.com",
+    "customer_address": "mmmm",
+    "order_type": "delivery",
+    "status": "pending",
+    "payment_status": "pending",
+    "payment_method": "",
+    "subtotal": "41.00",
+    "tax": "4.10",
+    "delivery_charge": "5.00",
+    "discount": "0.00",
+    "total": "50.10",
+    "notes": ",,",
+    "table_number": null,
+    "created_at": "2026-06-23T16:52:10.572Z",
+    "updated_at": "2026-06-23T16:52:10.572Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 2,
+  "fields": {
+    "order_number": "9810",
+    "user": 1,
+    "customer_name": "admin",
+    "customer_phone": "..",
+    "customer_email": "nmahi8836@gmail.com",
+    "customer_address": ",,",
+    "order_type": "dine_in",
+    "status": "pending",
+    "payment_status": "pending",
+    "payment_method": "",
+    "subtotal": "117.00",
+    "tax": "11.70",
+    "delivery_charge": "0.00",
+    "discount": "0.00",
+    "total": "128.70",
+    "notes": "mm",
+    "table_number": null,
+    "created_at": "2026-06-23T19:11:18.244Z",
+    "updated_at": "2026-06-23T19:11:18.244Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 3,
+  "fields": {
+    "order_number": "5340",
+    "user": 1,
+    "customer_name": "....",
+    "customer_phone": ".......",
+    "customer_email": "nmahi8836@gmail.com",
+    "customer_address": "...............",
+    "order_type": "delivery",
+    "status": "pending",
+    "payment_status": "pending",
+    "payment_method": "",
+    "subtotal": "104.00",
+    "tax": "10.40",
+    "delivery_charge": "5.00",
+    "discount": "0.00",
+    "total": "119.40",
+    "notes": "........",
+    "table_number": null,
+    "created_at": "2026-06-23T19:12:06.228Z",
+    "updated_at": "2026-06-23T19:12:06.228Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 4,
+  "fields": {
+    "order_number": "1679",
+    "user": 1,
+    "customer_name": "admin",
+    "customer_phone": ".......",
+    "customer_email": ".......@gmail.com",
+    "customer_address": "...................",
+    "order_type": "delivery",
+    "status": "preparing",
+    "payment_status": "paid",
+    "payment_method": "",
+    "subtotal": "6.00",
+    "tax": "0.60",
+    "delivery_charge": "5.00",
+    "discount": "0.00",
+    "total": "11.60",
+    "notes": ".............",
+    "table_number": null,
+    "created_at": "2026-06-23T19:18:01.137Z",
+    "updated_at": "2026-06-23T19:28:30.824Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 5,
+  "fields": {
+    "order_number": "6299",
+    "user": 1,
+    "customer_name": "admin",
+    "customer_phone": "................",
+    "customer_email": "...............@gmail.com",
+    "customer_address": ".",
+    "order_type": "delivery",
+    "status": "preparing",
+    "payment_status": "paid",
+    "payment_method": "",
+    "subtotal": "7.00",
+    "tax": "0.70",
+    "delivery_charge": "5.00",
+    "discount": "0.00",
+    "total": "12.70",
+    "notes": ".",
+    "table_number": null,
+    "created_at": "2026-06-23T19:44:37.469Z",
+    "updated_at": "2026-06-23T19:47:01.075Z"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "menu_item": 6,
+    "quantity": 1,
+    "price": "29.00",
+    "total": "29.00",
+    "special_instructions": ""
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 2,
+  "fields": {
+    "order": 1,
+    "menu_item": 10,
+    "quantity": 1,
+    "price": "12.00",
+    "total": "12.00",
+    "special_instructions": ""
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 3,
+  "fields": {
+    "order": 2,
+    "menu_item": 1,
+    "quantity": 2,
+    "price": "55.00",
+    "total": "110.00",
+    "special_instructions": ""
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 4,
+  "fields": {
+    "order": 2,
+    "menu_item": 12,
+    "quantity": 1,
+    "price": "7.00",
+    "total": "7.00",
+    "special_instructions": ""
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 5,
+  "fields": {
+    "order": 3,
+    "menu_item": 2,
+    "quantity": 1,
+    "price": "104.00",
+    "total": "104.00",
+    "special_instructions": ""
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 6,
+  "fields": {
+    "order": 4,
+    "menu_item": 11,
+    "quantity": 1,
+    "price": "6.00",
+    "total": "6.00",
+    "special_instructions": ""
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 7,
+  "fields": {
+    "order": 5,
+    "menu_item": 12,
+    "quantity": 1,
+    "price": "7.00",
+    "total": "7.00",
+    "special_instructions": ""
+  }
+},
+{
+  "model": "reservations.reservation",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "name": "admin",
+    "email": "m.auon@gmail.com",
+    "phone": "..",
+    "date": "2026-06-05",
+    "time": "19:46:00",
+    "guests": 5,
+    "table_number": null,
+    "special_requests": "..",
+    "status": "pending",
+    "created_at": "2026-06-23T14:41:38.667Z",
+    "updated_at": "2026-06-23T14:41:38.667Z"
+  }
+}
+]
